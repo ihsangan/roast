@@ -22,7 +22,11 @@ export default {
           );
         }
 
-        const profileResponse = await fetch(`https://api.github.com/users/${username}`);
+        const headers = {
+          "Authorization": `Bearer ${env.GH_API_KEY}`
+        };
+
+        const profileResponse = await fetch(`https://api.github.com/users/${username}`, { headers });
         if (!profileResponse.ok) {
           return new Response(
             JSON.stringify({
@@ -35,7 +39,7 @@ export default {
         }
         const profileData = await profileResponse.json();
 
-        const repoResponse = await fetch(`https://api.github.com/users/${username}/repos?sort=updated`);
+        const repoResponse = await fetch(`https://api.github.com/users/${username}/repos?sort=updated`, { headers });
         const repoData = await repoResponse.json();
 
         let readmeData: { status: number; data: string | null } = { status: 404, data: null };

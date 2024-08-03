@@ -15,5 +15,7 @@ jobs:
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
           secrets: |
             GEMINI_API_KEY
+            GH_API_KEY
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GH_API_KEY: ${{ secrets.GH_API_KEY }}
