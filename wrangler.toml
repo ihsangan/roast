@@ -1,3 +1,4 @@
-name = "template"
+name = "roast-github"
 workers_dev = true
 compatibility_date = "2022-01-01"
+main = "./src/index.ts"
